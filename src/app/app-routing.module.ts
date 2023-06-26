@@ -8,16 +8,17 @@ import { CategoriesComponent } from './pages/categories/categories.component';
 import { ExamsQuestionsComponent } from './pages/exams-questions/exams-questions.component';
 import { QuestionsComponent } from './pages/questions/questions.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: 'admins', component: AdminsComponent },
-  { path: 'books', component: BooksComponent },
-  { path: 'categories', component: CategoriesComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'exams-questions', component: ExamsQuestionsComponent },
+  { path: 'admins', canActivate: [AuthGuard], component: AdminsComponent },
+  { path: 'books', canActivate: [AuthGuard], component: BooksComponent },
+  { path: 'categories', canActivate: [AuthGuard], component: CategoriesComponent },
+  { path: 'dashboard', canActivate: [AuthGuard], component: DashboardComponent },
+  { path: 'exams-questions', canActivate: [AuthGuard], component: ExamsQuestionsComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'questions', component: QuestionsComponent },
+  { path: 'questions', canActivate: [AuthGuard], component: QuestionsComponent },
   { path: '**', component: NotfoundComponent },
 ];
 
