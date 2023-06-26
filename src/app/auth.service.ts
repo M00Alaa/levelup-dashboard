@@ -29,6 +29,10 @@ export class AuthService {
 
   }
 
+  addAdmin(data: any): Observable<any> {
+    return this._HttpClient.post(`${this.baseUrl}AddAdmin`, data)
+  }
+
   login(data: any): Observable<any> {
     return this._HttpClient.post(`${this.baseUrl}loginAdmin`, data)
   }

@@ -44,18 +44,18 @@
 
                                     <!-- add new admin button -->
                                     <div class="col-6 text-end">
-                                        <a class="btn bg-gradient-dark mb-0" href="javascript:;"><i
+                                        <a class="btn bg-gradient-dark mb-0" (click)="submitForm(addAdmin)"><i
                                                 class="material-icons text-sm">add</i>&nbsp;&nbsp;Add New Admin</a>
                                     </div>
 
                                 </div>
                             </div>
                             <div class="card-body p-3 px-5">
-                                <div class="row">
+                                <form class="row" role="form" [formGroup]="addAdmin">
                                     <div class="col-md-6">
                                         <div class="input-group input-group-outline my-3">
                                             <label class="form-label">Username</label>
-                                            <input type="text" class="form-control" formControlName="username">
+                                            <input type="text" class="form-control" formControlName="Username">
                                         </div>
                                     </div>
 
@@ -79,7 +79,7 @@
                                             <input type="tel" class="form-control" formControlName="phone">
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
