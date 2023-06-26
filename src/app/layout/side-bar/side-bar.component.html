@@ -3,10 +3,9 @@
     id="sidenav-main" *ngIf="isLogin">
     <div class="sidenav-header">
         <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
-            aria-hidden="true" id="iconSidenav"></i>
-        <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard "
-            target="_blank">
-            <span class="ms-1 font-weight-bold text-white" style="font-size: 28px;">Level Up</span>
+            id="iconSidenav"></i>
+        <a class="navbar-brand" routerLink="/">
+            <img src="../../../assets/img/logo-white.png" style="width: 110px;" alt="">
         </a>
     </div>
     <hr class="horizontal light mt-0 mb-2">
@@ -54,7 +53,7 @@
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
                     </div>
-                    <span class="nav-link-text ms-1">exams-questions</span>
+                    <span class="nav-link-text ms-1">Exams Questions</span>
                 </a>
             </li>
 
@@ -63,9 +62,11 @@
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">notifications</i>
                     </div>
-                    <span class="nav-link-text ms-1">admins</span>
+                    <span class="nav-link-text ms-1">Admins</span>
                 </a>
             </li>
+
+            <hr class="horizontal light mt-0 mb-2">
 
             <li class="nav-item">
                 <a class="nav-link text-white " (click)="logOut();">
@@ -75,7 +76,6 @@
                     <span class="nav-link-text ms-1">Log Out</span>
                 </a>
             </li>
-
         </ul>
     </div>
 </aside>
