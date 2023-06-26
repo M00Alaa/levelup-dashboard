@@ -10,6 +10,9 @@ import { QuestionsComponent } from './pages/questions/questions.component';
 import { ExamsQuestionsComponent } from './pages/exams-questions/exams-questions.component';
 import { AdminsComponent } from './pages/admins/admins.component';
 import { LoginComponent } from './pages/login/login.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { SideBarComponent } from './layout/side-bar/side-bar.component';
+import { FooterComponent } from './layout/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { LoginComponent } from './pages/login/login.component';
     QuestionsComponent,
     ExamsQuestionsComponent,
     AdminsComponent,
-    LoginComponent
+    LoginComponent,
+    NotfoundComponent,
+    SideBarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
