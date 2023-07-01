@@ -1,1 +1,157 @@
-<section class="w-80 ms-auto"></section>
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg w-80 ms-auto">
+    <!-- Navbar -->
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
+        data-scroll="true">
+        <div class="container-fluid py-1 px-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                    <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a>
+                    </li>
+                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Categories</li>
+                </ol>
+                <h6 class="font-weight-bolder mb-0">Categories</h6>
+            </nav>
+            <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+                <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                    <div class="input-group input-group-outline">
+                        <label class="form-label">Type here...</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <ul class="navbar-nav  justify-content-end">
+                    <li class="nav-item d-flex align-items-center">
+                        <a routerLink="/" class="nav-link text-body font-weight-bold px-0">
+                            <i class="fa fa-user me-sm-1"></i>
+                            <span class="d-sm-inline d-none">Sign Out</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-md-12 mb-lg-0 mb-4">
+                        <div class="card mt-4">
+                            <div class="card-header pb-0 p-3">
+                                <div class="row">
+                                    <div class="col-6 d-flex align-items-center">
+                                        <h6 class="mb-0">New Category</h6>
+                                    </div>
+
+                                    <!-- add new Category button -->
+                                    <div class="col-6 text-end">
+                                        <a class="btn bg-gradient-dark mb-0" (click)="clickAddCategory()"
+                                            data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i
+                                                class="material-icons text-sm">add</i>&nbsp;&nbsp;Add New Category</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="card-body p-3 px-5">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <div class="card">
+                    <div class="card-header pb-0 px-3">
+                        <h6 class="mb-0">Our Categories</h6>
+                    </div>
+                    <div class="card-body pt-4 p-3">
+                        <ul class="list-group">
+                            <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg"
+                                *ngFor="let category of categories">
+                                <div class="d-flex flex-column">
+                                    <h6 class="mb-3 text-sm">{{category.Name}}</h6>
+                                    <span class="mb-2 text-xs">ID: <span
+                                            class="text-dark ms-sm-2 font-weight-bold">{{category.ID}}</span></span>
+                                    <span class="mb-2 text-xs">Type: <span
+                                            class="text-dark font-weight-bold ms-sm-2">{{category.type}}</span></span>
+                                </div>
+                                <div class="ms-auto text-end">
+                                    <a class="btn btn-link text-danger text-gradient px-3 mb-0"
+                                        (click)="deleteCategory(category.ID)"><i
+                                            class="material-icons text-sm me-2">delete</i>Delete</a>
+                                    <a (click)="getCategoryInfo(category)" class="btn btn-link text-dark px-3 mb-0"
+                                        data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i
+                                            class="material-icons text-sm me-2">edit</i>Edit</a>
+                                </div>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel" *ngIf="showAdd">Add New
+                                                    Category</h5>
+                                                <h5 class="modal-title" id="staticBackdropLabel" *ngIf="showUpdate">
+                                                    Update Category</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form class="row" role="form" [formGroup]="categoryData">
+                                                    <div class="col-md-12">
+                                                        <div class="input-group input-group-outline my-3">
+                                                            <label class="form-label">Category Name</label>
+                                                            <input type="text" class="form-control"
+                                                                formControlName="categoryname">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12">
+                                                        <div class="input-group input-group-outline my-3">
+                                                            <label class="form-label">Category type</label>
+                                                            <input type="text" class="form-control"
+                                                                formControlName="type">
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary"
+                                                    (click)="addCategory(categoryData)" data-bs-dismiss="modal"
+                                                    *ngIf="showAdd">Add</button>
+                                                <button type="button" class="btn btn-primary" (click)="updateCategory()"
+                                                    data-bs-dismiss="modal" *ngIf="showUpdate">Update</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-12">
+                        <div class="copyright text-center text-sm ">
+                            © 2023,
+                            made with <i class="fa fa-heart" aria-hidden="true"></i> by
+                            <a href="#" class="font-weight-bold ">Level
+                                Up Team</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</main>
