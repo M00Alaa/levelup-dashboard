@@ -68,10 +68,11 @@
                             <div class="col-12 d-flex justify-content-center align-items-center">
                                 <form class="row" role="form" [formGroup]="bookCategoryLevel">
                                     <div class="col-md-6">
-                                        <div class="col-md-6 input-group input-group-outline my-3 w-100">
+                                        <div class="col-md-12 input-group input-group-outline my-3 w-100">
                                             <!-- category name value -->
                                             <select class="form-control form-select" formControlName="category"
                                                 aria-label="Default select example">
+                                                <option Value="null" disabled>Select Category Name</option>
                                                 <option ngValue="{{category.Name}}" *ngFor="let category of categories">
                                                     {{category.Name}}</option>
                                             </select>
@@ -79,10 +80,11 @@
                                     </div>
 
                                     <div class="col-md-6">
-                                        <div class="input-group input-group-outline my-3">
+                                        <div class="col-md-12 input-group input-group-outline my-3">
                                             <!-- level value -->
                                             <select class="form-control form-select" formControlName="level"
                                                 aria-label="Default select example">
+                                                <option Value="null" disabled>Select level Name</option>
                                                 <option ngValue="level1">level1</option>
                                                 <option ngValue="level2">level2</option>
                                                 <option ngValue="level3">level3</option>

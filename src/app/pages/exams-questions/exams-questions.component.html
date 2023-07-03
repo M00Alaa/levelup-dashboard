@@ -72,6 +72,7 @@
                                             <!-- category name value -->
                                             <select class="form-control form-select" formControlName="category"
                                                 aria-label="Default select example">
+                                                <option Value="null" disabled>Select Category Name</option>
                                                 <option ngValue="{{category.Name}}" *ngFor="let category of categories">
                                                     {{category.Name}}</option>
                                             </select>
