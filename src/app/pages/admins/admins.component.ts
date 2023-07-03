@@ -12,6 +12,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AdminsComponent {
 
+  admins: any[] = []
+
   addAdmin: FormGroup = new FormGroup({
     Username: new FormControl(null, [Validators.required]),
     password: new FormControl(null, [Validators.required, Validators.minLength(8), Validators.maxLength(16)]),
@@ -32,8 +34,42 @@ export class AdminsComponent {
 
   }
 
+
+  getAllAdmins() {
+    this._AuthService.getAllAdmins().subscribe({
+      next: (res) => {
+        this.admins = res.data;
+
+        console.log(this.admins);
+      },
+      error: (err) => {
+        console.log('getAllCategories' + err);
+
+      }
+    })
+  }
+
+  deleteAdmin(data: any) {
+    this._AuthService.deleteAdmin(data.id).subscribe((res) => {
+
+      if (res.succes = "false") {
+        console.log(res);
+        alert(res.message);
+
+      }
+      else {
+        console.log(res);
+        alert("admin deleted successful")
+        this.getAllAdmins()
+      }
+
+    })
+  }
+
   constructor(
     private _AuthService: AuthService, private _Router: Router
-  ) { }
+  ) {
+    this.getAllAdmins()
+  }
 
 }

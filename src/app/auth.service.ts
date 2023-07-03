@@ -29,9 +29,18 @@ export class AuthService {
 
   }
 
+  getAllAdmins(): Observable<any> {
+    return this._HttpClient.get(`${this.baseUrl}AllAdmins`)
+  }
+
   addAdmin(data: any): Observable<any> {
     return this._HttpClient.post(`${this.baseUrl}AddAdmin`, data)
   }
+
+  deleteAdmin(id1: any): Observable<any> {
+    return this._HttpClient.delete(`${this.baseUrl}deleteAdmin?id1=${id1}`)
+  }
+
 
   login(data: any): Observable<any> {
     return this._HttpClient.post(`${this.baseUrl}loginAdmin`, data)

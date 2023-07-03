@@ -125,7 +125,7 @@ export class QuestionsComponent {
     this.newQuestionData.choice1 = this.questionData.value.choice1
     this.newQuestionData.choice2 = this.questionData.value.choice2
     this.newQuestionData.choice3 = this.questionData.value.choice3
-    this.newQuestionData.anseur = this.questionData.value.book
+    this.newQuestionData.anseur = this.questionData.value.anseur
 
 
     this._CategoriesService.updateQuestion(this.newQuestionId, this.newQuestionData).subscribe({
