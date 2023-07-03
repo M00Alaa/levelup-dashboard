@@ -42,4 +42,21 @@ export class CategoriesService {
   updateBook(R_ID: any, data: any): Observable<any> {
     return this.http.put(`https://level.somee.com/api/updatebook?R_ID=${R_ID}`, data)
   }
+
+  // Questions
+  getAllQuestions(category: any, level: any): Observable<any> {
+    return this.http.get(`https://level.somee.com/api/allquction?categoryname=${category}&levelname=${level}`)
+  }
+
+  addQuestion(data: any): Observable<any> {
+    return this.http.post(`https://level.somee.com/api/AddQuction`, data)
+  }
+
+  deleteQuestion(Q_ID: number): Observable<any> {
+    return this.http.delete(`https://level.somee.com/api//deleteallquction?Q_ID=${Q_ID}`)
+  }
+
+  updateQuestion(Q_ID: any, data: any): Observable<any> {
+    return this.http.put(`https://level.somee.com/api/updatequction?Q_ID=${Q_ID}`, data)
+  }
 }

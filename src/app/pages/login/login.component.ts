@@ -30,17 +30,11 @@ export class LoginComponent {
         }
         else {
           // this.toastr.error(res, 'error message!');
-
           alert(res);
-
         }
-
         console.log(res);
-
       }
     })
-
-
   }
 
   constructor(

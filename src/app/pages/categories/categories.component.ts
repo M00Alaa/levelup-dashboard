@@ -73,7 +73,6 @@ export class CategoriesComponent implements OnInit {
       },
       error: (err) => {
         console.log(err);
-
       }
     })
   }
