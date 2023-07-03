@@ -103,7 +103,7 @@ export class BooksComponent {
   }
 
 
-  updateCategory() {
+  updateBook() {
 
     this.newBookData.catecoryname = this.bookData.value.catecoryname
     this.newBookData.levelname = this.bookData.value.levelname
